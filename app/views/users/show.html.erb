@@ -2,6 +2,12 @@
 
 <%= render @user %>
 
+<p>
+<% @user.posts.each do |post| %>
+ <%= post.caption %>
+<% end %>
+</p>
+
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %>

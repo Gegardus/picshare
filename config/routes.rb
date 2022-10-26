@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -9,5 +10,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "users#index"
+  root "posts#index"
 end
