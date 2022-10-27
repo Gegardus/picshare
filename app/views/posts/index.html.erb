@@ -1,11 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Posts</h1>
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <%= post.user %>
+    <%
+=begin%>
+ <%= render post %>  
+<%
+=end%>
+     <p>
+    <%= image_tag(post.image.thumb.url, alt: 'Image') if post.image? %>
+  </p>
     <p>
       <%= link_to "Show this post", post %>
     </p>

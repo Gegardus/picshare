@@ -1,10 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @post %>
-
 <p>
-<strong>Post:</strong>
-<%= link_to @post.user.username, user_path(@post.user) %>
+  <strong>Post:</strong>
+  <%= link_to @post.user.username, user_path(@post.user) %>
 </p>
 
 <div>
