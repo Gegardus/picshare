@@ -1,18 +1,15 @@
 <h1>Posts</h1>
 
-<div id="posts">
+<div id="posts" class="columns is-multiline is-gapless">
   <% @posts.each do |post| %>
-    <%
-=begin%>
- <%= render post %>  
-<%
-=end%>
-     <p>
-    <%= image_tag(post.image.thumb.url, alt: 'Image') if post.image? %>
-  </p>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <div class="column is-one-quarter">
+      <div class="image is-5by4">
+         <%= link_to image_tag(post.image.thumb.url, alt: 'Image') if post.image? %>
+      </div>
+      <p>
+        <%= link_to "Show this post", post %>
+      </p>
+    </div>
   <% end %>
 </div>
 
