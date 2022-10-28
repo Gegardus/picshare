@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
-  # GET /users or /users.json
-  def index
-    @users = User.all
-  end
-
+  before_action :confirm_authorization, only: %i[ edit update destroy ]
   # GET /users/1 or /users/1.json
   def show
   end
@@ -52,7 +47,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, alert: "You have deleted your account." }
       format.json { head :no_content }
     end
   end
@@ -66,5 +61,11 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:username, :password, :password_confirmation)
+    end
+
+    def confirm_authorization 
+      unless current_user == @user 
+        redirect_to root_path, alert: "You don't have permission for that action."
+      end
     end
 end
