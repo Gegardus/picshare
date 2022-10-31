@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ *,
+ *::after,
+ *::before {
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+ 
+ :root {
+   --libre-font: "Gemunu Libre", sans-serif;
+ }
+ 
+ html,
+ body {
+   height: 100%;
+ }
+ 
+ body {
+   font-family: var(--libre-font);
+ }
+ 

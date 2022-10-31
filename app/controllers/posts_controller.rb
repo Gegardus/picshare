@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include AuthorizationHelper
-  before_action :set_post, only: %i[ show edit update destroy ] 
-  
+
+  before_action :set_post, only: %i[ show edit update destroy ]   
   before_action :confirm_owner, only: %i[ edit update destroy ]
   before_action :confirm_login, only: [:new]
 
@@ -11,7 +11,9 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1 or /posts/1.json
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   # GET /posts/new
   def new
