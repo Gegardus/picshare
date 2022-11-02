@@ -74,3 +74,5 @@ end
 gem 'carrierwave', '~> 2.0'
 gem 'image_magick'
 gem 'mini_magick'
+gem 'rspec-rails' # ignore if already set up in project
+gem 'rswag'
